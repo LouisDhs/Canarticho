@@ -15,18 +15,18 @@ void draw(){
   pos.y += speedY;
   if (pos.x >= height-25)
   {
-    speedX -= random(2);
+    speedX -= random(2, 10);
   }
   if (pos.x <= 25)
   {
-    speedX += random(2);
+    speedX += random(2, 10);
   }
   if (pos.y >= width-25)
   {
-    speedY -= random(2);
+    speedY -= random(2, 10);
   }
   if (pos.y <= 25)
   {
-    speedY += random(2);
+    speedY += random(2, 10);
   }
 }
