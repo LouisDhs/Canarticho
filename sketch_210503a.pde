@@ -1,6 +1,43 @@
-PVector pos = new PVector(0, 0);
-int speedX = 3;
-int speedY = 3;
+
+class Ball {
+ PVector pos;
+ int size;
+ int speedX;
+ int speedY;
+ 
+ Ball(int _size){
+ pos = new PVector(width/2, height/2);
+ size = _size;
+ speedX=(int)random(2, 10);
+ speedY=(int)random(2, 10);
+ }
+ 
+  void Display(){
+  fill(0, 0, 255);
+  ellipse(pos.x, pos.y, size, size); 
+  pos.x += speedX;
+  pos.y += speedY;
+  if (pos.x >= height-size/2)
+  {
+    speedX *=-1;
+  }
+  if (pos.x+speedX <= size/2)
+  {
+    speedX *=-1;
+  }
+  if (pos.y >= width-size/2)
+  {
+    speedY *=-1;
+  }
+  if (pos.y <= size/2)
+  {
+    speedY *=-1;
+  }
+}
+}
+
+Ball ball = new Ball(50);
+Ball balle = new Ball(30);
 
 void setup() {
  size(600, 600);
@@ -9,24 +46,6 @@ void setup() {
 }
 void draw(){
   background(255, 204, 0);
-  fill(0, 0, 255);
-  ellipse(pos.x, pos.y, 50, 50); 
-  pos.x += speedX;
-  pos.y += speedY;
-  if (pos.x >= height-25)
-  {
-    speedX -= random(2, 10);
-  }
-  if (pos.x <= 25)
-  {
-    speedX += random(2, 10);
-  }
-  if (pos.y >= width-25)
-  {
-    speedY -= random(2, 10);
-  }
-  if (pos.y <= 25)
-  {
-    speedY += random(2, 10);
-  }
+  ball.Display();
+  balle.Display();
 }
