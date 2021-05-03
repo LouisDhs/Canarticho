@@ -1,5 +1,5 @@
 
-class Ball {
+class Ball { //création de la classe Ball avec initialisation du principe de taille(size) vitesse X et vitesse Y
  PVector pos;
  int size;
  int speedX;
@@ -36,16 +36,23 @@ class Ball {
 }
 }
 
-Ball ball = new Ball(50);
-Ball balle = new Ball(30);
+Ball balls[] = new Ball[1000];
+
+
+
+
 
 void setup() {
  size(600, 600);
  fill(255, 0, 0);
  ellipse(width/2, height/2, 50, 50);
+ for(int i = 0; i < balls.length; i++) {
+ balls[i] = new Ball(10);
+}
 }
 void draw(){
   background(255, 204, 0);
-  ball.Display();
-  balle.Display();
+  for(int i = 0; i < balls.length; i++) {
+ balls[i].Display();
+}
 }
