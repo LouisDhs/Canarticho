@@ -1,6 +1,6 @@
 PVector pos = new PVector(0, 0);
-int posX = 3;
-int posY = 3;
+int speedX = 3;
+int speedY = 3;
 
 void setup() {
  size(600, 600);
@@ -11,6 +11,22 @@ void draw(){
   background(255, 204, 0);
   fill(0, 0, 255);
   ellipse(pos.x, pos.y, 50, 50); 
-  pos.x += posX;
-  pos.y += posY;
+  pos.x += speedX;
+  pos.y += speedY;
+  if (pos.x >= height-25)
+  {
+    speedX -= random(2);
+  }
+  if (pos.x <= 25)
+  {
+    speedX += random(2);
+  }
+  if (pos.y >= width-25)
+  {
+    speedY -= random(2);
+  }
+  if (pos.y <= 25)
+  {
+    speedY += random(2);
+  }
 }
